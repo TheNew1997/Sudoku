@@ -19,17 +19,20 @@ for x = 1:4 % cyklus pro radky
         if (A(y, x) > 0) % podminka jestli na pozici v poli neni 0
             text(x-0.5,4.5-y,num2str(A(y,x))) % vypise do daneho policka cislo ze zadani
         else
-            
             for n = 1:4 % cyklus ktery zkousi vsechny mozny cisla
+                neni = 0
                 for t = 1:4 % cyklus ktery slouyi pro kontrolu jestli v radku a sloupci neni uz zkousejici cislo
                     % vyresit logiku kontroly ctverce
                     % nejspis i upravit kontrolu radku a sloupce
-                    if ((A(t, x) == n) || (A(y, t) == n))
+                    
+                    % podminka ktera bude hlidat zda neni v radku sloupci ani ctverci dane cislo
+                    if ((A(t, x) ~= n) && (A(y, t) ~= n))
                         % nad timhle je potreba se jeste zamyslet
-                    else
-                        number = n
-                        % prikaz pro vyskoceni z cyklu
+                        neni = neni + 1
                     end
+                end
+                if (neni == 4)
+                    number = n
                 end
             end
             text(x-0.5,4.5-y,num2str(number)) % zde se bude vypisovat cislo ktere na dane pozice muze byt
