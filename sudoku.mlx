@@ -1,0 +1,38 @@
+figure;hold on;axis off;axis equal % nastaveni vykreslovani
+rectangle('Position',[0 0 4 4],'LineWidth',3,'Clipping','off') % nejsilnejsi okraje
+rectangle('Position',[2,0,2,4],'LineWidth',2) % silan cara vertical |||
+rectangle('Position',[0,2,4,2],'LineWidth',2) % silna cara horizontal ---
+rectangle('Position',[0,0,4,3],'LineWidth',1) % horni tenka cara
+rectangle('Position',[0,0,4,1],'LineWidth',1) % spodni tenka cara
+rectangle('Position',[0,0,1,4],'LineWidth',1) % leva tenka cara
+rectangle('Position',[0,0,3,4],'LineWidth',1) % prava tenka cara
+
+% A je yadani sudoka, kde je nula tak se musi doplnit spravny vysledek
+A = [3,4,1,0;
+     0,2,0,0;
+     0,0,2,0;
+     0,1,4,3;
+    ];
+
+for x = 1:4 % cyklus pro radky
+    for y = 1:4 % cyklus pro sloupce
+        if (A(y, x) > 0) % podminka jestli na pozici v poli neni 0
+            text(x-0.5,4.5-y,num2str(A(y,x))) % vypise do daneho policka cislo ze zadani
+        else
+            
+            for n = 1:4 % cyklus ktery zkousi vsechny mozny cisla
+                for t = 1:4 % cyklus ktery slouyi pro kontrolu jestli v radku a sloupci neni uz zkousejici cislo
+                    % vyresit logiku kontroly ctverce
+                    % nejspis i upravit kontrolu radku a sloupce
+                    if ((A(t, x) == n) || (A(y, t) == n))
+                        % nad timhle je potreba se jeste zamyslet
+                    else
+                        number = n
+                        % prikaz pro vyskoceni z cyklu
+                    end
+                end
+            end
+            text(x-0.5,4.5-y,num2str(number)) % zde se bude vypisovat cislo ktere na dane pozice muze byt
+        end
+    end
+end
