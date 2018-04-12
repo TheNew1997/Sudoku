@@ -42,14 +42,25 @@ for x = 1:4 % cyklus pro radky
                         % nad timhle je potreba se jeste zamyslet
                         neni = neni + 1
                     end
-                    if (t == 1 || t == 3)
-                        if (A(t, umisteniy+ctverec) ~= n)
+                    if (t == 1)
+                        if (A(1+umistenix, 1+umisteniy) ~= n)
                             neni2 = neni2 + 1
                         end 
-                    else
-                        if (A(umistenix+ctverec, t) ~= n)
+                    end
+                    if (t == 2)
+                        if (A(1+umistenix, 2+umisteniy) ~= n)
                             neni2 = neni2 + 1
-                        end
+                        end 
+                    end
+                    if (t == 3)
+                        if (A(2+umistenix, 1+umisteniy) ~= n)
+                            neni2 = neni2 + 1
+                        end 
+                    end
+                    if (t == 4)
+                        if (A(2+umistenix, 2+umisteniy) ~= n)
+                            neni2 = neni2 + 1
+                        end 
                     end
                 end
                 if ((neni == 4) && (neni2 == 4))
@@ -60,3 +71,4 @@ for x = 1:4 % cyklus pro radky
         end
     end
 end
+
